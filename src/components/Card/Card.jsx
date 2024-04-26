@@ -37,7 +37,9 @@ const Card = ({ itemData }) => {
           </View>
 
           <View style={styles.descripBuy}>
-            <Text style={styles.description}>{itemData.descript}</Text>
+            <Text style={styles.description} numberOfLines={1}>
+              {itemData.descript}
+            </Text>
             <Text style={styles.buy}>
               Buy
               <AntDesign name="shoppingcart" size={34} color="black" />

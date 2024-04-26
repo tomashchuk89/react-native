@@ -67,6 +67,7 @@ export const styles = StyleSheet.create({
   description: {
     fontSize: "16",
     fontWeight: "400",
+    width: 150,
   },
 
   likeCart: {
