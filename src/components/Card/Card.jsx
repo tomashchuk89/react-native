@@ -1,32 +1,40 @@
-import {View, Text, Image} from "react-native";
+import {View, Text, Image, Pressable} from "react-native";
 import { styles } from "./styles";
 import FastImage from 'react-native-fast-image';
 import { AntDesign } from '@expo/vector-icons';
-
+import React, { useState } from 'react';
+import CustomPressable from '../CustomPressable/CustomPressable';
 
  
-const Card = ({ itemData }) => {
+const Card = ({ cardItem }) => {
+  const [heartColor, setHeartColor] = useState('black');
+
+  const toggleHeartColor = () => {
+    setHeartColor(heartColor === 'black' ? 'red' : 'black');
+  };
   return (
     <View>
       <View style={styles.container}>
         <View style={styles.imgBox}>
           <Image
             source={{
-              uri: itemData.image,
+              uri: cardItem.image,
               priority: FastImage.priority.high,
             }}
             style={styles.image}
           />
         </View>
 
-        <View style={styles.mainCard}>
+        <View style={styles.maincardItem}>
           <View style={styles.containerDescript}>
-            <Text style={styles.title}>{itemData.title}</Text>
-            <AntDesign name="heart" size={24} color="red" />
+            <Text style={styles.title}>{cardItem.title}</Text>
+            <CustomPressable onPress={toggleHeartColor}>
+              <AntDesign name="heart" size={24} color={heartColor} />
+            </CustomPressable>
           </View>
 
           <View>
-            {itemData.isNew ? (
+            {cardItem.isNew ? (
               <Text>
                 <Text style={styles.priseNew}>New price </Text>
                 <Text style={styles.oldPrice}>Older price</Text>
@@ -38,7 +46,7 @@ const Card = ({ itemData }) => {
 
           <View style={styles.descripBuy}>
             <Text style={styles.description} numberOfLines={1}>
-              {itemData.descript}
+              {cardItem.descript}
             </Text>
             <Text style={styles.buy}>
               Buy

@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import { colors } from '../Colors';
+
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF8DC",
-    borderColor: "gray",
+    backgroundColor: colors.cardBg,
+    borderColor: colors.borderCard,
     borderWidth: 1,
     height: 130,
     width: 380,
@@ -16,7 +18,34 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 3, height: 4 },
     shadowOpacity: 0.5,
     shadowRadius: 3,
+    margin: 10,
   },
+
+  inputBlock: {
+    width: '95%',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
+
+  input: {
+    width:280,
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 10,
+  },
+
+  blocksBtn: {
+    height: 60,
+    width: '20%',
+    flexDirection: "row",
+  
+    alignItems: "center",
+  },
+
+
 
   imgBox: {
     alignItems: "center",
@@ -26,7 +55,7 @@ export const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    borderColor: "gray",
+    borderColor: colors.borderCard ,
     borderRadius: 20,
     justifyContent: "space-between",
   },
